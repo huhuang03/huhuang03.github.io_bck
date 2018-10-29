@@ -1341,3 +1341,18 @@ GLOBAL_CONTEXT = {}
 # GLOBAL_CONTEXT as parameter when the template is about to be
 # rendered
 GLOBAL_CONTEXT_FILLER = []
+
+# th custom
+# set pygments hightlight disable for org-mode
+
+# NOTE: Needs additional configuration in init.el file.
+
+# Add the orgmode compiler to your COMPILERS dict.
+COMPILERS["orgmode"] = ('.org',)
+# Add org files to your POSTS, PAGES
+POSTS = POSTS + (("posts/*.org", "posts", "post.tmpl"),)
+PAGES = PAGES + (("pages/*.org", "pages", "page.tmpl"),)
+
+
+# extra meta from file itself
+TH_USE_NO_META_META_EXTRA = True

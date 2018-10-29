@@ -1,0 +1,10 @@
+[Core]
+Name = No meta meta extra
+Module = no_meta_meta_extra.py
+
+[Nikola]
+PluginCategory = MetadataExtractor
+
+
+[Documentation]
+Author = tonghu
