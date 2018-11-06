@@ -1,0 +1,9 @@
+Android Versions
+
+
+| Api level | verison | code name   |
+|-----------+---------+-------------|
+|        27 |   8.1.0 | Oreo        |
+|        26 |   8.0.0 | Oreo        |
+|        23 |     6.0 | Marshmallow |
+|           |         |             |
