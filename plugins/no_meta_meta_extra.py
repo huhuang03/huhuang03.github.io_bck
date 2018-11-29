@@ -34,20 +34,11 @@ class NoMetaMetadata(MetadataExtractor):
 
 
     def _extract_metadata_from_text(self, source_text: str) -> 'typing.Dict[str, str]':
-        print("_extract_metadata_from_text called")
+        return []
 
     def split_metadata_from_text(self, source_text: str) -> (str, str):
         """Split text into metadata and content (both strings)."""
-        print("split_meta_from_text called")
-        if self.split_metadata_re is None:
-            return source_text
-        else:
-            split_result = self.split_metadata_re.split(source_text.lstrip(), maxsplit=1)
-            if len(split_result) == 1:
-                return split_result[0], split_result[0]
-            else:
-                # Necessary?
-                return split_result[0], split_result[-1]
+        return source_text
 
     def extract_filename(self, filename: str, lang: str) -> 'typing.Dict[str, str]':
         """Extract metadata from filename."""

@@ -1,0 +1,14 @@
+PageCompiler -> split_metadata -> split_metadata_from_text
+
+
+categories.py  
+    overview_page_hierarchy_variable_name = "cat_hierarchy"
+
+    
+
+nikola.py
+_sort_category_hierarchy
+
+
+* cat_hierarchy 生成路径
+  nikola build -> nikola shell{which is a python file} ->  __main.py{search by the sys.path}.main -> 
