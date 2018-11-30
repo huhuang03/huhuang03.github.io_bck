@@ -11,4 +11,4 @@ _sort_category_hierarchy
 
 
 * cat_hierarchy 生成路径
-  nikola build -> nikola shell{which is a python file} ->  __main.py{search by the sys.path}.main -> 
+  nikola build -> nikola shell{which is a python file} ->  __main.py{search by the sys.path}.main -> init nikola{contains config}, init DoitNikola{init doit, which contains task} -> new DoitNikola{extends DoitMain which is doit lib } -> add build to 
