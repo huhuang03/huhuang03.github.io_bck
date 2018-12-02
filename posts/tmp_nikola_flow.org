@@ -1,5 +1,5 @@
 * index.html output
-  nikola build -> nikola shell -> __main.py -> NikolaDoit.run -> all plugin which category is task  run -> the is a task named RenderTaxonomies which gen index, feed, category 
+  nikola build -> nikola shell -> __main__.py -> Nikola(site).init_plugin  -> NikolaDoit.run -> all plugin which category is task  run -> the is a task named RenderTaxonomies which gen index, feed, category 
   
 * how tmpl render and where is the data
 
@@ -54,3 +54,7 @@ def generate_tasks(func_name, gen_result, gen_doc=None):
     
 nikola.py
     def gen_tasks(self, name, plugin_category, doc=''):
+
+    
+            print(f'task1 {task.name}')
+            yield task
