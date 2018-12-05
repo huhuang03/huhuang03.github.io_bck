@@ -17,7 +17,7 @@ class NoMetaMetadata(MetadataExtractor):
 
     conditions = [(MetaCondition.config_present, "TH_USE_NO_META_META_EXTRA")]
 
-    def __getNikolaTime(self, ctime):
+    def _getNikolaTime(self, ctime):
         time = datetime.fromtimestamp(ctime)
         tz = dateutil.tz.tzlocal()
         offset = tz.utcoffset(time)
@@ -43,5 +43,9 @@ class NoMetaMetadata(MetadataExtractor):
     def extract_filename(self, filename: str, lang: str) -> 'typing.Dict[str, str]':
         """Extract metadata from filename."""
         meta = {}
-        meta['date'] = self.__getNikolaTime(os.path.getctime(filename))
+        meta['date'] = self._getNikolaTime(os.path.getctime(filename))
+        print(filename)
+        split = filename.split("/") 
+        if len(split) > 2:
+            meta['category'] = split[1]
         return meta
