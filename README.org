@@ -18,3 +18,4 @@ To check all available commands::
 
     
 * TODOS
+- may be try create a plugin insteed of change nikola internal code.
