@@ -1,0 +1,32 @@
+* LocalManifest
+  localmanifest的定义在网上搜索到。大概就是在 local_manifests文件夹的文件会合并到manifest.xml中
+  
+网上一般说的就是删除project
+#+BEGIN_SRC xml
+<remove-project name="foo" />
+#+END_SRC
+
+或者增加project
+#+BEGIN_SRC xml
+<<project path="/foo" name="name" remote="remote name" revision="the branch" />
+#+END_SRC
+** 使用local manifest机制修改remote url
+我们还可以使用local manifest机制修改remote url
+
+比如我们想覆盖默认aosp 中的remote的url地址，换成国内镜像地址。经过实践是可以。aosp中的remote定义是
+#+BEGIN_SRC xml
+<remote  name="aosp"
+        fetch=".."
+        review="https://android-review.googlesource.com/" />
+#+END_SRC
+
+只要我们创建文件 .repo/local_manifests/change_url_to_cn.xml。文件内容为
+#+BEGIN_SRC xml
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote  name="aosp"
+           fetch=".."
+           url="git://mirrors.ustc.edu.cn/aosp/platform/manifest"
+           review="https://android-review.googlesource.com/" />
+</manifest>
+#+END_SRC

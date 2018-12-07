@@ -16,16 +16,20 @@
 
 <%block name="content">
 
+<div class="all_cate_container">
 % for name, items in category.items():
-    <div>${name}</div>
-    <ul>
-        % for post in items:
-            <a href="${post.permalink()}">
-            <li>${post.title()}</li>
-            </a>
-        % endfor
-    </ul>
+    <div class='cate_container'>
+        <div>${name}</div>
+        <ul>
+            % for post in items:
+                <a href="${post.permalink()}">
+                <li>${post.title()}</li>
+                </a>
+            % endfor
+        </ul>
+    </div>
 %endfor
+</div>
 
 <%block name="content_header">
     ${feeds_translations.translation_link(kind)}
