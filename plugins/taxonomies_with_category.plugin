@@ -1,0 +1,12 @@
+[Core]
+name = render_taxonomies
+module = taxonomies_with_category
+
+[Documentation]
+author = Tonghu
+version = 1.0
+website = https://getnikola.com/
+description = add categories in index page
+
+[Nikola]
+PluginCategory = Task
