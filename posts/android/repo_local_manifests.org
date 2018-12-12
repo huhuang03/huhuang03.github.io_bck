@@ -1,3 +1,4 @@
+#+OPTIONS: ^:nil
 * LocalManifest
   localmanifest的定义在网上搜索到。大概就是在 local_manifests文件夹的文件会合并到manifest.xml中
   

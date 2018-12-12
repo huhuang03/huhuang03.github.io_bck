@@ -1,3 +1,4 @@
+#+OPTIONS: ^:nil
 尝试root 红米6a(riva)。并且安装xposed
 
 * 刷入开发版本

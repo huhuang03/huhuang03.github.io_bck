@@ -115,6 +115,23 @@ article.post-micro {
     display: inline;
 }
 
+.entry-content p {
+    margin: 0 0 25px 0;
+}
+
+.entry-content h1,
+.entry-content h2,
+.entry-content h3
+{
+    padding-top: 10px;
+    margin: 20px 0 15px;
+}
+
+.entry-content {
+    margin-top: 1em;
+    font-size: 0.89em;
+}
+
 .posttranslations h3 {
     display: inline;
     font-size: 1em;
@@ -123,10 +140,6 @@ article.post-micro {
 
 .posttranslations h3:last-child {
     display: none;
-}
-
-.entry-content {
-    margin-top: 1em;
 }
 
 /* for alignment with Bootstrap's .entry-content styling */
@@ -147,6 +160,26 @@ article.post-micro {
 
 .codetable pre {
     overflow-x: scroll;
+}
+
+h1 {
+    font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+body {
+    color: #555;
+}
+
+.entry-title {
+    text-align: center;
+    font-size: 26px;
+    word-break: break-word; /* To prevent overflow, word may be broken at arbitrary points */
+    font-weight: 400; 
 }
 
 /* hat tip bootstrap/html5 boilerplate */
