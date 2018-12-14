@@ -1,0 +1,61 @@
+Rename the xposed name, let other soft can't find it
+
+This tutorial contains download aosp + compiler xposed + rename xposed
+
+* Download aosp
+Env: mac + 1t移动硬盘
+
+移动硬盘刚买回来，全盘格式为ntfs，网上没有找到分区方法。只有先格式化成mac支持的格式，在进行分区。我这里分成了
+Jou case-sensitive 500G + ntfs 500G。分区的时候，我分别命名成了case-sensitive和windows
+
+然后进入/Volumns/case-sensitive。按照aosp的官方教程下载即可。and we can set =fetch url=  to 中科大 to spped up download speed. You can see in the post =repo_local_manifest= to set the fetch url
+
+* complier xposed
+  we need compile app_process first
+** compie app_process
+Env: mac ox 10.13.6 + Xcode 10.0 + MacOSX10.14.sdk
+我们编译的时候有三个问题
+
+*** =aosp/external/libcxx/include/cstdlib= 里面有冲突。方法实现和方法定义有冲突
+#+BEGIN_SRC c
+// cstdlib file
+#include <stdlib.h>
+
+#if !defined(_LIBCPP_MSVCRT) && !defined(__sun__) && !defined(_AIX)
+inline _LIBCPP_INLINE_VISIBILITY long      abs(     long __x) _NOEXCEPT {return  labs(__x);}
+#+END_SRC
+
+但是stdlib.h有多个
+
+一个版本的stdlib.h
+#+BEGIN_SRC 
+int	 abs(int) __pure2;
+#+END_SRC
+
+另一个版本的stdlib.h
+#+BEGIN_SRC c
+// file /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1= is same
+#if !defined(_LIBCPP_MSVCRT) && !defined(__sun__) && !defined(_AIX)
+inline _LIBCPP_INLINE_VISIBILITY long      abs(     long __x) _NOEXCEPT {return  labs(__x);}
+#+END_SRC
+
+最终网上说是XCode9的bug，但是具体是什么bug我搞不清楚。经过测试XCode10也有这个问题。换成XCode8.3.3可以解决。
+
+*** bison错误
+原因是aosp中prebuild的bison自带bug
+[[https://groups.google.com/forum/#!topic/android-building/D1-c5lZ9Oco][解决方式]]为Patch [[https://android-review.googlesource.com/c/platform/external/bison/+/517740][bison fix]]
+#+BEGIN_SRC shell
+cd /Volumes/AOSP/external/bison
+git pull aosp
+git cherry-pick c0c852bd6fe462b148475476d9124fd740eba160
+mm
+
+# then replace the prebuild
+cp /Volumes/AOSP/out/host/darwin-x86/bin/bison /Volumes/AOSP/prebuilts/misc/darwin-x86/bison/
+#+END_SRC
+*** systemcall（如果我没有记错，好像是叫这个名字）未定义。
+网上是说这个是MacOSSDK10.12的bug。使用MacOSSDK10.11可以解决这个问题。经过测试是对的。
+
+总结起来就是：1. 编译正确的bison替代prebuild中的错误bison。 2. 使用XCode8.3.3 + MacOsSDK10.11。
+
+即可成功编译。

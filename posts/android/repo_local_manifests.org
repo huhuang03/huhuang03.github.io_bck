@@ -4,4 +4,5 @@
 change =manfiests/config= file,the fetch property
 ** Method 2
 1. copy the manifests/default.xml to manifests/foo.xml
+2. in =foo.xml=, change fetch properry
 2. use =repo sync -m foo=
