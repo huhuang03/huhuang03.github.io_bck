@@ -10,9 +10,9 @@ Jou case-sensitive 500G + ntfs 500G。分区的时候，我分别命名成了cas
 
 然后进入/Volumns/case-sensitive。按照aosp的官方教程下载即可。and we can set =fetch url=  to 中科大 to spped up download speed. You can see in the post =repo_local_manifest= to set the fetch url
 
-* complier xposed
+* Complier xposed
   we need compile app_process first
-** compie app_process
+** compile app_process
 Env: mac ox 10.13.6 + Xcode 10.0 + MacOSX10.14.sdk
 我们编译的时候有三个问题
 
@@ -47,7 +47,7 @@ inline _LIBCPP_INLINE_VISIBILITY long      abs(     long __x) _NOEXCEPT {return 
 #+BEGIN_SRC shell
 cd /Volumes/AOSP/external/bison
 git pull aosp
-git cherry-pick c0c852bd6fe462b148475476d9124fd740eba160
+git cherry-pick c0c852bd6fe462b148475476d9124fd740eba16c0c852bd6fe462b148475476d9124fd740eba1600
 mm
 
 # then replace the prebuild
@@ -59,3 +59,49 @@ cp /Volumes/AOSP/out/host/darwin-x86/bin/bison /Volumes/AOSP/prebuilts/misc/darw
 总结起来就是：1. 编译正确的bison替代prebuild中的错误bison。 2. 使用XCode8.3.3 + MacOsSDK10.11。
 
 即可成功编译。
+
+** compile xposed
+   No any special word to say
+ One thing worth to mention, XposedTools/local_manifests doesn't not have sdk25, you can crate one.
+* rename xposed
+** what xposed do?
+we can guess from it flash shell
+
+#+BEGIN_SRC shell
+install_nobackup /system/xposed.prop                      0    0 0644
+install_nobackup /system/framework/XposedBridge.jar       0    0 0644
+
+install_and_link  /system/bin/app_process32               0 2000 0755 u:object_r:zygote_exec:s0
+install_overwrite /system/bin/dex2oat                     0 2000 0755 u:object_r:dex2oat_exec:s0
+install_overwrite /system/bin/oatdump                     0 2000 0755
+install_overwrite /system/bin/patchoat                    0 2000 0755 u:object_r:dex2oat_exec:s0
+install_overwrite /system/lib/libart.so                   0    0 0644
+install_overwrite /system/lib/libart-compiler.so          0    0 0644
+install_overwrite /system/lib/libart-disassembler.so      0    0 0644
+install_overwrite /system/lib/libsigchain.so              0    0 0644
+install_nobackup  /system/lib/libxposed_art.so            0    0 0644
+if [ $IS64BIT ]; then
+  install_and_link  /system/bin/app_process64             0 2000 0755 u:object_r:zygote_exec:s0
+  install_overwrite /system/lib64/libart.so               0    0 0644
+  install_overwrite /system/lib64/libart-compiler.so      0    0 0644
+  install_overwrite /system/lib64/libart-disassembler.so  0    0 0644
+  install_overwrite /system/lib64/libsigchain.so          0    0 0644
+  install_nobackup  /system/lib64/libxposed_art.so        0    0 0644
+fi
+
+if [ "$API" -ge "22" ]; then
+  find /system /vendor -type f -name '*.odex.gz' 2>/dev/null | while read f; do mv "$f" "$f.xposed"; done
+fi
+#+END_SRC
+
+所以流程大概为
+app_process -> XposedBridge.jar -> data/data/pkg_of_xposed_installer/conf/moduels.txt
+要更改，我们从头到尾都需要修改
+** try
+- change XposedBridge.jar to system-recovery.jar
+- change xposed.prop to recovery.prop
+- change app_process32(64)_xposed to app_process32(64), and move the xp_original to xp_origin
+- change xposed installer pkg name to com.android.demo
+   
+** next try
+- change pkg XposedBridge.jar's XposedBridge, XposedHelper pkg name to other
