@@ -105,3 +105,7 @@ app_process -> XposedBridge.jar -> data/data/pkg_of_xposed_installer/conf/moduel
    
 ** next try
 - change pkg XposedBridge.jar's XposedBridge, XposedHelper pkg name to other
+  
+** 是否应该集成xposedInstaller
+好处：少一个安装包
+坏处：粘合度过高
