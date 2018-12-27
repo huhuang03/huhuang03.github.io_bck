@@ -1,0 +1,4 @@
+本文讨论在梦幻西游里面注入hello world
+
+大概流程为调换main.lua
+main.lua -> origin main.lua and hook.lua

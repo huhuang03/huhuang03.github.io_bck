@@ -102,7 +102,12 @@ article.post-micro {
     background-color: #6c757d;
 }
 
-.metadata p:before,
+.post-meta {
+    color: #6E7173;
+    display: inline;
+    text-indent:.15em;
+}
+
 .postlist .listdate:after {
     content: " — ";
 }
@@ -168,11 +173,11 @@ h1 {
 }
 
 h2 {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 h3 {
-    font-size: 18px;
+    font-size: 15px;
 }
 
 body {
