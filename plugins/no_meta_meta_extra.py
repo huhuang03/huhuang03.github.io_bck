@@ -31,7 +31,11 @@ class NoMetaMetadata(MetadataExtractor):
             tz_str = ' UTC'
         return time.strftime('%Y-%m-%d %H:%M:%S') + tz_str
 
-
+    def _lookup_cate_table(self, origin):
+        cate_name_map = self.site.config['CATE_NAME_MAP']
+        if cate_name_map and origin in cate_name_map:
+            return cate_name_map[origin] 
+        return origin
 
     def _extract_metadata_from_text(self, source_text: str) -> 'typing.Dict[str, str]':
         return []
@@ -47,5 +51,7 @@ class NoMetaMetadata(MetadataExtractor):
         print(filename)
         split = filename.split("/") 
         if len(split) > 2:
-            meta['category'] = split[1]
+            cate = split[1]
+            cate = self._lookup_cate_table(cate)
+            meta['category'] = cate
         return meta

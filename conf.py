@@ -1356,3 +1356,8 @@ PAGES = PAGES + (("pages/*.org", "pages", "page.tmpl"),)
 
 # extra meta from file itself
 TH_USE_NO_META_META_EXTRA = True
+
+
+CATE_NAME_MAP = {
+    'mh': "梦幻西游"
+}
