@@ -7,6 +7,7 @@ import os
 import time
 from datetime import datetime
 import dateutil.tz
+import io
 
 
 class NoMetaMetadata(MetadataExtractor):
@@ -48,10 +49,38 @@ class NoMetaMetadata(MetadataExtractor):
         """Extract metadata from filename."""
         meta = {}
         meta['date'] = self._getNikolaTime(os.path.getctime(filename))
-        print(filename)
+        w_title = os.path.basename(filename).replace("/", "_", 100).rstrip('.org')
+        w_title = w_title.replace(" ", "_", 100)
+        meta['w_title'] = w_title
+
+        if 'test' in filename:
+            meta['write'] = True
+
         split = filename.split("/") 
         if len(split) > 2:
             cate = split[1]
             cate = self._lookup_cate_table(cate)
             meta['category'] = cate
+
+        self._manually_write_meta(filename, meta)
         return meta
+
+    def _manually_write_meta(self, path, meta):
+        # if 'write' in meta:
+            with io.open(path, "r+", encoding="utf8") as fd:
+                content = fd.read()
+                fd.seek(0)
+                fd.write("""#+BEGIN_COMMENT
+.. title: {}
+.. slug: {}
+.. date: {}
+.. tags: 
+.. category: {}
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
+""".format(meta['w_title'], meta['w_title'], meta['date'], meta.get('category', '')))
+                fd.write("\n")
+                fd.write(content) 
