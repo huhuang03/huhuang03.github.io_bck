@@ -9,6 +9,8 @@
 .. type: text
 
 #+END_COMMENT
+
+#+OPTIONS: ^:nil
 目标：在mac上运行调试arm程序。
 
 方法：利用qemu建一个虚拟机。在虚拟机中跑。虚拟机最好是文字的。

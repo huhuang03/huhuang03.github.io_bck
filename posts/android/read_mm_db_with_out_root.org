@@ -9,6 +9,8 @@
 .. type: text
 
 #+END_COMMENT
+
+#+OPTIONS: ^:nil
 * 权限详情
 #+BEGIN_SRC shell
 drwxrwx--x  50 system system    4096 2018-12-19 13:29 data

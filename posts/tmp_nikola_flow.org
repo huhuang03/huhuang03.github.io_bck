@@ -9,6 +9,8 @@
 .. type: text
 
 #+END_COMMENT
+
+#+OPTIONS: ^:nil
 * index.html output
   nikola build -> nikola shell -> __main__.py -> Nikola(site).init_plugin  -> NikolaDoit.run -> all plugin which category is task  run -> the is a task named RenderTaxonomies which gen index, feed, category ->  finially nikola.py -> generic_index_renderer -> generic_post_list_renderer -> generic_render which
 #+BEGIN_SRC python

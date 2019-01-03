@@ -9,6 +9,8 @@
 .. type: text
 
 #+END_COMMENT
+
+#+OPTIONS: ^:nil
 Rename the xposed name, let other soft can't find it
 
 This tutorial contains download aosp + compiler xposed + rename xposed

@@ -9,5 +9,7 @@
 .. type: text
 
 #+END_COMMENT
+
+#+OPTIONS: ^:nil
 * Xposed流程
   /system/bin/app_process64_xposed -> /system/bin/Xposed.jar

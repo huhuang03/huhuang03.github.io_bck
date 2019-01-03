@@ -9,6 +9,8 @@
 .. type: text
 #+END_COMMENT
 
+#+OPTIONS: ^:nil
+
 * 一、编译AOSP
 坑有三个，解决了，就可以顺利编译
 

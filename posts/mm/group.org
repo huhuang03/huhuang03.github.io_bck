@@ -9,6 +9,8 @@
 .. type: text
 
 #+END_COMMENT
+
+#+OPTIONS: ^:nil
 * 设置群消息免打扰
 ** 开
 v673

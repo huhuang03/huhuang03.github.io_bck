@@ -9,6 +9,8 @@
 .. type: text
 
 #+END_COMMENT
+
+#+OPTIONS: ^:nil
 * 只要记住几个概念
 - task_xx 定义一个task
 - task会马上执行，重要的是返回

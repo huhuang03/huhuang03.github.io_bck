@@ -9,6 +9,8 @@
 .. type: text
 
 #+END_COMMENT
+
+#+OPTIONS: ^:nil
 本文讨论在梦幻西游里面注入hello world
 
 大概流程为调换main.lua

@@ -75,13 +75,12 @@ class NoMetaMetadata(MetadataExtractor):
 .. link: 
 .. description: 
 .. type: text
-
 #+END_COMMENT
 """.format(meta['w_title'], meta['w_title'], meta['date'], meta.get('category', ''))
         with io.open(path,'r') as contents:
             save = contents.read()
             with io.open(path,'w') as wf:
-                wf.write(to_write)
+                wf.write(to_write + "\n")
             with io.open(path,'a') as wf:
                 wf.write(save)
         # # if 'write' in meta:

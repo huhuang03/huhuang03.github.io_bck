@@ -10,5 +10,7 @@
 
 #+END_COMMENT
 
+#+OPTIONS: ^:nil
+
 
 在这里书写你的文章。

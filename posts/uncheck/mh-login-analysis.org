@@ -10,6 +10,8 @@
 .. state: private
 #+END_COMMENT
 
+#+OPTIONS: ^:nil
+
 * 步骤
 - 发送登录请求，stat为no_login
 #+BEGIN_SRC log

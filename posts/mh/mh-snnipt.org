@@ -10,6 +10,8 @@
 .. state: private
 #+END_COMMENT
 
+#+OPTIONS: ^:nil
+
 * Code Snaps
 ** Scene
 - get scene

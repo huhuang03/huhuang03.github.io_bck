@@ -9,6 +9,8 @@
 .. type: text
 
 #+END_COMMENT
+
+#+OPTIONS: ^:nil
 * 没有点击路径
   没有测试，估计有很大一方面
 
