@@ -32,7 +32,7 @@ systemcall（如果我没有记错，好像是叫这个名字）未定义。
 #+BEGIN_SRC shell
 cd /Volumes/AOSP/external/bison
 git pull aosp
-git cherry-pick c0c852bd6fe462b148475476d9124fd740eba16c0c852bd6fe462b148475476d9124fd740eba1600
+git cherry-pick c0c852bd6fe462b14847
 mm
 
 # then replace the prebuild
