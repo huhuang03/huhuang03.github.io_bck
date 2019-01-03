@@ -66,11 +66,7 @@ class NoMetaMetadata(MetadataExtractor):
         return meta
 
     def _manually_write_meta(self, path, meta):
-        # if 'write' in meta:
-            with io.open(path, "r+", encoding="utf8") as fd:
-                content = fd.read()
-                fd.seek(0)
-                fd.write("""#+BEGIN_COMMENT
+        to_write = """#+BEGIN_COMMENT
 .. title: {}
 .. slug: {}
 .. date: {}
@@ -81,6 +77,17 @@ class NoMetaMetadata(MetadataExtractor):
 .. type: text
 
 #+END_COMMENT
-""".format(meta['w_title'], meta['w_title'], meta['date'], meta.get('category', '')))
-                fd.write("\n")
-                fd.write(content) 
+""".format(meta['w_title'], meta['w_title'], meta['date'], meta.get('category', ''))
+        with io.open(path,'r') as contents:
+            save = contents.read()
+            with io.open(path,'w') as wf:
+                wf.write(to_write)
+            with io.open(path,'a') as wf:
+                wf.write(save)
+        # # if 'write' in meta:
+        #     with io.open(path, "r+", encoding="utf8") as fd:
+        #         content = fd.read()
+        #         fd.seek(0)
+        #         fd.write()
+        #         fd.write("\n")
+        #         fd.write(content) 

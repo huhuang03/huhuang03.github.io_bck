@@ -1,3 +1,14 @@
+#+BEGIN_COMMENT
+.. title: py_doit
+.. slug: py_doit
+.. date: 2019-01-03 18:35:46 UTC+08:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
 * 只要记住几个概念
 - task_xx 定义一个task
 - task会马上执行，重要的是返回

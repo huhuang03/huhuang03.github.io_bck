@@ -1,3 +1,14 @@
+#+BEGIN_COMMENT
+.. title: mac_run_arm
+.. slug: mac_run_arm
+.. date: 2019-01-03 18:35:46 UTC+08:00
+.. tags: 
+.. category: 梦幻西游
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
 目标：在mac上运行调试arm程序。
 
 方法：利用qemu建一个虚拟机。在虚拟机中跑。虚拟机最好是文字的。

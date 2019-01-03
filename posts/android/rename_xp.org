@@ -1,3 +1,14 @@
+#+BEGIN_COMMENT
+.. title: rename_xp
+.. slug: rename_xp
+.. date: 2019-01-03 18:35:46 UTC+08:00
+.. tags: 
+.. category: android
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
 Rename the xposed name, let other soft can't find it
 
 This tutorial contains download aosp + compiler xposed + rename xposed

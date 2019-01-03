@@ -1,3 +1,14 @@
+#+BEGIN_COMMENT
+.. title: group
+.. slug: group
+.. date: 2019-01-03 18:35:46 UTC+08:00
+.. tags: 
+.. category: mm
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
 * 设置群消息免打扰
 ** 开
 v673

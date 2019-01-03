@@ -1,3 +1,14 @@
+#+BEGIN_COMMENT
+.. title: redmi6a_root
+.. slug: redmi6a_root
+.. date: 2019-01-03 18:35:46 UTC+08:00
+.. tags: 
+.. category: android
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
 #+OPTIONS: ^:nil
 尝试root 红米6a(riva)。并且安装xposed
 

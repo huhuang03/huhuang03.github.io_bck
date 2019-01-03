@@ -1,3 +1,14 @@
+#+BEGIN_COMMENT
+.. title: repo_local_manifests
+.. slug: repo_local_manifests
+.. date: 2019-01-03 18:35:46 UTC+08:00
+.. tags: 
+.. category: android
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
 #+OPTIONS: ^:nil
 * change url of default remote fetch url
 ** Mehtod 1

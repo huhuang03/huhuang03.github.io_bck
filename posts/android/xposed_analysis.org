@@ -1,2 +1,13 @@
+#+BEGIN_COMMENT
+.. title: xposed_analysis
+.. slug: xposed_analysis
+.. date: 2019-01-03 18:35:46 UTC+08:00
+.. tags: 
+.. category: android
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
 * Xposed流程
   /system/bin/app_process64_xposed -> /system/bin/Xposed.jar

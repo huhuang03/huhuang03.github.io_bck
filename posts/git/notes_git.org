@@ -1,3 +1,14 @@
+#+BEGIN_COMMENT
+.. title: notes_git
+.. slug: notes_git
+.. date: 2019-01-03 18:35:46 UTC+08:00
+.. tags: 
+.. category: git
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
 * remove folder `node_modules` in history 
   
 #+BEGIN_SRC shell
