@@ -1,0 +1,42 @@
+#+BEGIN_COMMENT
+.. title: note
+.. slug: note
+.. date: 2019-01-13 12:58:05 UTC+08:00
+.. tags: 
+.. category: deeplearning
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+深度学习汇总一些基本公式的记录
+* 损失函数
+** 均方误差
+#+BEGIN_SRC python
+  def mean_squared_error(y, t):
+      return 0.5 * np.sum((y - t) * 2)
+#+END_SRC
+
+** 交叉熵误差
+*** 监督数据是one-hot形式[0, 1, 0]
+#+BEGIN_SRC python
+  def cross_entropy_error(y, t):
+      if y.ndim == 1:
+          y = y.reshape(1, y.size)
+          t = t.reshape(1, t.size)
+
+      batch_size = y.shape[0]
+      return -np.sum(t * np.log(y + delta)) / batch_size
+#+END_SRC
+
+*** 监督数据是标签形式（非one-hot表示，而是像"2", "7"这样的标签）
+#+BEGIN_SRC python
+  def cross_entropy_error(y, t):
+      if y.ndim == 1:
+          y = y.reshape(1, y.size)
+          t = t.reshape(1, t.size)
+
+      size = y.shape[0]
+      return -np.sum(
+          np.log(y[np.arange(size), t] + 1e-7)) / batch_size
+#+END_SRC
