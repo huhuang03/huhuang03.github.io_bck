@@ -10,6 +10,8 @@
 #+END_COMMENT
 
 深度学习汇总一些基本公式的记录
+也可以参考我总结的简单python package, sdl(simple deep learning)
+
 * 损失函数
 ** 均方误差
 #+BEGIN_SRC python
