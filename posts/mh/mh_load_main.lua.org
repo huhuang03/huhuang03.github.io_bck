@@ -1,0 +1,11 @@
+#+BEGIN_COMMENT
+.. title: 梦幻游戏 load main.lua
+.. slug: mh_load_main.lua
+.. date: 2019-01-25 00:17:15 UTC+08:00
+.. tags: 
+.. category: 梦幻西游
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
