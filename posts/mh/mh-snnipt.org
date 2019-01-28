@@ -1,5 +1,5 @@
 #+BEGIN_COMMENT
-.. title: 梦幻西游 代码片段
+.. title: 梦幻西游 notes
 .. slug: mh-snnipt
 .. date: 2018-06-03
 .. tags:
