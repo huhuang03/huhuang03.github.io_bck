@@ -19,4 +19,5 @@
 | [[https://github.com/huhuang03/thyi][thyi]]                   | a android net util           | york              | =compile 'com.th.android:thyi:1.3.5'=            |
 | [[https://gitlab.com/huhuang03/mmxp][mmxp]]                   | mm xposed lib                | york              | =compile ‘com.th.wx:wx_xposed:1.8.0’=            |
 | [[https://gitlab.com/huhuang03/mmdb][mmdb]]                   | mm db util                   | york              | =implementation 'com.th.mm:mmdb:0.0.3'=          |
+| [[git@github.com:huhuang03/Ssp.git][Ssp]]                    | Simpel Socket Protocol       | york              | not now                                          |
 
