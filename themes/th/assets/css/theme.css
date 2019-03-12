@@ -132,6 +132,17 @@ article.post-micro {
     margin: 20px 0 15px;
 }
 
+.entry-content h2 {
+    font-size: 22px;
+    border-bottom: 1px solid #eaecef;
+    padding-bottom: .3em;
+}
+
+.entry-content h3 {
+    font-size: 15px;
+}
+
+
 .entry-content {
     margin-top: 1em;
     font-size: 0.89em;
@@ -172,13 +183,6 @@ h1 {
     line-height: 1.7;
 }
 
-h2 {
-    font-size: 22px;
-}
-
-h3 {
-    font-size: 15px;
-}
 
 body {
     color: #555;
