@@ -53,12 +53,13 @@ lstmtraining --debug_interval 100 \
   --model_output the-output-folder-for-your-train --learning_rate 20e-4 \
   --train_listfile ./mhtrain/chi_sim.training_files.txt \
   --eval_listfile ./mhtrain/chi_sim.training_files.txt \
-  --max_iterations 5000 &> ./the-model_output/basetrain.log
+  --max_iterations 5000 &> ./your-log-folder/basetrain.log
 #+END_SRC
 
 除了官方option。我们解释一下比较好理解的option
 - =traineddata= 上一次命令生成的traineddata。即这次训练的开始
 - =train_listfile= the file list all lstmf file path we used to train
 - =eval_listfile= 跟上面一样，用来监督的文件列表。一般是train列表的一部分，我们也可以和train_listfile一样
+- =model-output= checkpoint的名字，checkpoint为训练进行一段落时候的存档文件。下次会从这个checkpoint继续。
   
 好了，等待训练完成即可。
