@@ -1,0 +1,27 @@
+#+BEGIN_COMMENT
+.. title: add
+.. slug: add
+.. date: 2019-05-15 00:50:49 UTC+08:00
+.. tags: 
+.. category: algorithm
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
+
+* 二进制乘法
+0(n) n为二进制表示位数
+
+#+BEGIN_SRC python
+  def j_th_bit_of(j, y):
+      pass
+
+  def multiply(x, y):
+      sum = 0
+      shifte_x = x
+      for j in range(0, (n-1)):
+          if j_th_bit_of(j, y) ==  1:
+              sum = sum + shifte_x
+          shifte_x = shifte_x << 1
+#+END_SRC
