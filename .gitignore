@@ -4,3 +4,4 @@ __pycache__/
 cache/
 listings/
 nikola_env/
+.idea/
