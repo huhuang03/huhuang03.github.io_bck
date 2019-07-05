@@ -35,7 +35,6 @@
 
   最好的opengl 入门教程，能看得懂，不会绕啊绕
 
-  
 * 视频
 - [[http://open.163.com/special/opencourse/paradigms.html][编程范式]]
 
