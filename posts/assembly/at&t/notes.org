@@ -1,3 +1,14 @@
+#+BEGIN_COMMENT
+.. title: notes
+.. slug: notes
+.. date: 2019-06-03 17:35:57 UTC+08:00
+.. tags: 
+.. category: assembly
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
 ** 参数传递
    不超过6个参数的参数传递
    | bits |      |      |      |      |      |      |

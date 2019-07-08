@@ -1,3 +1,14 @@
+#+BEGIN_COMMENT
+.. title: instructions
+.. slug: instructions
+.. date: 2019-06-02 10:54:27 UTC+08:00
+.. tags: 
+.. category: assembly
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
 * Move
 ** 小 -> 大
 | instruction |                        | desc               |

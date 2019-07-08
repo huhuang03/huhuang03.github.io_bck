@@ -1,3 +1,14 @@
+#+BEGIN_COMMENT
+.. title: gdb
+.. slug: gdb
+.. date: 2019-06-06 14:54:46 UTC+08:00
+.. tags: 
+.. category: assembly
+.. link: 
+.. description: 
+.. type: text
+#+END_COMMENT
+
 | order                      | desc                                            |
 |----------------------------+-------------------------------------------------|
 | start and quit:            |                                                 |

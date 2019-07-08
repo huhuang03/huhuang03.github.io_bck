@@ -3,5 +3,6 @@ __pycache__/
 .doit.db
 cache/
 listings/
-nikola_env/
 .idea/
+nikola/
+activate
