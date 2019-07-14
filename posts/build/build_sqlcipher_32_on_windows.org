@@ -1,0 +1,70 @@
+#+BEGIN_COMMENT
+.. title: build sqlcipher 32 on windows
+.. slug: build_sqlcipher_32_on_windows
+.. date: 2019-07-11 13:24:06 UTC+08:00
+.. tags: 
+.. category: 
+.. link: 
+.. description: 
+.. type: text
+
+#+END_COMMENT
+
+在window上build出sqlcipher静态库
+
+** build依赖的openssl静态库
+*** 下载openssl
+#+BEGIN_SRC shell
+git clone --depth=1 https://github.com/openssl/openssl --branch=OpenSSL_1_1_1-stable
+#+END_SRC
+
+*** 安装nasm和active perl
+    nasm需要手动加入到PATH中
+
+*** 从Visual Studio xxx Command Prompt 进入控制台模式切换到openssl源码目录执行
+#+BEGIN_SRC shell
+perl configure VC-WIN32
+修改makefile和configdata.pm 中/MD 为/MT
+nmake
+nmake install
+#+END_SRC
+nmake install需要管理员权限才能安装到C:\Program Files(x86)\OpenSSL中
+
+*** 安装msys
+*** make
+#+BEGIN_SRC  shell
+./configure --with-crypto-lib=none --disable-tcl DFLAGS="-O3" CFLAGS="-DSQLITE_HAS_CODEC -DSQLCIPHER_CRYPTO_OPENSSL -I/d/OpenSSL/include /d/OpenSSL/lib/libcrypto.lib -L/d/OpenSSL/lib/ -static-libgcc" LDFLAGS="-lcrypto"
+#+END_SRC
+*** make1
+#+BEGIN_SRC shell
+./configure --enable-tempstore=yes --with-crypto-lib=none --disable-tcl CFLAGS="-DSQLITE_HAS_CODEC -DSQLITE_TEMP_STORE=2 -DNOCRYPT -lcrypto -DSQLCIPHER_CRYPTO_OPENSSL -I/d:/proc/openssl/master/include /d/source/sqlcipher/libcrypto.dll -L/d/source/sqlcipher/ -static-libgcc" LDFLAGS="libcrypto.lib"
+
+#+END_SRC
+*** make2
+#+BEGIN_SRC shell
+./configure --enable-tempstore=yes CFLAGS="-DSQLITE_HAS_CODEC" \
+	LDFLAGS="/d/proc/openssl/master/lib/libcrypto.a"
+#+END_SRC
+*** make3
+#+BEGIN_SRC shell
+cl -ID:\proc\openssl\master\include sqlite3.c -DSQLITE_API=__declspec(dllexport) -DSQLITE_TEMP_STORE=2 -DSQLITE_HAS_CODEC /MT -link -dll -out:sqlcipher.dll -LIBPATH:-ID:\proc\openssl\master\lib libcrypto.lib  advapi32.lib user32.lib gdi32.lib
+#+END_SRC
+*** make
+#+BEGIN_SRC 
+根据activetcl安装情况修改Makefile.msc  中的TCLINCDIR  TCLLIBDIR LIBTCL LIBTCLSTUB  LIBTCLPATH
+在Makefile.msc添加OpenSSL 信息
+TCC = $(TCC) -I"C:\Program Files (x86)\OpenSSL\include"
+RCC = $(RCC) -I"C:\Program Files (x86)\OpenSSL\include"
+LTLIBPATHS = $(LTLIBPATHS) /LIBPATH:"C:\Program Files (x86)\OpenSSL\lib"
+LTLIBS = $(LTLIBS) libcrypto.lib
+TCC = $(TCC) -DSQLITE_TEMP_STORE=2
+RCC = $(RCC) -DSQLITE_TEMP_STORE=2
+TCC = $(TCC) -DSQLITE_HAS_CODEC
+RCC = $(RCC) -DSQLITE_HAS_CODEC
+
+
+nmake -f Makefile.msc --enable-tempstore=yes CFLAGS="-DSQLITE_HAS_CODEC"
+#+END_SRC
+
+
+sqlcipher依赖于openssl，对于动态链接（依赖于openssl的dll文件）方式，编译sqlcipher的visual studio版本不要求和编译openssl时使用的版本一样，但是对于静态链接openssl的方式，要求使用相同版本的编译器。
