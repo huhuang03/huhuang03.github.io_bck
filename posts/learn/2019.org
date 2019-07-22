@@ -9,9 +9,10 @@
 .. type: text
 #+END_COMMENT
 
-* 扫街式学习
-
-** [[http://bestcbooks.com/categories/itwen-hua/][计算机书籍控-it文化]]
+** 粗略（讲道理的书）
+- [[http://bestcbooks.com/categories/itwen-hua/][计算机书籍控-it文化]]
     进度：Done 
 
-* 非扫街
+** 非粗略
+- csapp
+  看了自己觉得感兴趣的章节
