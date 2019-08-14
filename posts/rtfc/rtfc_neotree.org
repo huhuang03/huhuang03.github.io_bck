@@ -1,0 +1,35 @@
+Today we analysis the [[https://github.com/jaypei/emacs-neotree][emacs-neotree]]
+
+
+#+BEGIN_SRC  emacs-lisp
+;; 提供emacs-24.3的功能给之前的版本
+(require 'cl-lib)
+
+;; 定义变量
+(defconst neo-buffer-name " *NeoTree*"
+  "Name of the buffer where neotree shows directory contents.")
+  
+
+;; 注意这里的load-file-name和default-directory用help-variable无法查看，但是用
+;; (message xxx)可以查看到值
+(defconst neo-dir
+ (expand-file-name (if load-file-name
+                       (file-name-directory load-file-name)
+                     default-directory)))
+
+;; explain defmacro
+;; explain list
+;; 通用做法，向后兼容
+(unless (fboundp 'defvar-local)
+  (defmacro defvar-local (var val &optional docstring)
+    "Define VAR as a buffer-local variable with default value VAL.
+Like `defvar' but additionally marks the variable as being automatically
+buffer-local wherever it is set."
+    (declare (debug defvar) (doc-string 3))
+    (list 'progn (list 'defvar var val docstring)
+          (list 'make-variable-buffer-local (list 'quote var))))))
+#+END_SRC
+
+
+** explain defmacro
+
