@@ -29,3 +29,24 @@ buffer-local wherever it is set."
     (list 'progn (list 'defvar var val docstring)
           (list 'make-variable-buffer-local (list 'quote var))))))
 #+END_SRC
+
+** how to show the window
+*** first create a buffer =generate-new-buffer-name=
+*** then call =display-buffer= to display the buffer in some window, and the function return the window
+*** then call =select-window= to select the window(active window)
+
+#+BEGIN_SRC emacs-lisp
+(defun neo-global--create-window ()
+  "Create global neotree window."
+  (let ((window nil)
+        (buffer (neo-global--get-buffer t)))
+    (setq window
+          (select-window
+           (display-buffer buffer neo-display-action)))
+    (neo-window--init window buffer)
+    (neo-global--attach)
+    (neo-global--reset-width)
+    window))
+#+END_SRC
+
+duomai.com
