@@ -24,7 +24,6 @@
           return 2 * q + 1
 
 #+END_SRC
-
 ** multiply
 0(n) n为二进制表示位数
 

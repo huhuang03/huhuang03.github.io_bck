@@ -6,7 +6,7 @@ title: Android https通信
 date: 2016-02-24T10:39:14+08:00
 ---
 
-## HTTPS
+** HTTPS
 *HTTPS*（也被称为 *HTTP over TLS*, *HTTP over SSL*, *HTTP Secure*)。
 
 从字面上我们可以理解HTTPS为：使用SSL/TLS的HTTP，从而实现Secure通信。
@@ -20,12 +20,12 @@ date: 2016-02-24T10:39:14+08:00
 * 2008 TLS1.2 （也被称为SSL3.3)
 * 2011 TLS1.2修订版
 
-## Android Https 例子
+** Android Https 例子
 我们暂且不去讨论SSL为何物，先只看看在Android中怎么实现https通信。
 
 项目地址:<https://github.com/huhuang03/HttpsAndroid>
 
-### 普通http通信
+**# 普通http通信
 普通http通信我们很熟悉。就是发送一个http请求，Android提供了一个UrlConnection和一个HttpClient。
 
 这里为了简便我们使用RxJava风格的api。例子是通过ip定位的api获取ip和位置信息，数据为json格式，我们用LocData接收它。
@@ -52,7 +52,7 @@ date: 2016-02-24T10:39:14+08:00
 
 实际运行例子，可以正确打印出LocData的信息。
 
-### https通信
+**# https通信
 我们知道SSL通信对信息进行了加密。我们*暂时*这样理解，在SSL协议中，服务端配置了一个私钥和对应的公钥，客户端拿到公钥对信息进行加密。
 服务端通过私钥进行解密。
 
@@ -67,7 +67,7 @@ date: 2016-02-24T10:39:14+08:00
 
 所以客户端https通信就分成了两个。一是证书是知名CA颁发，一是证书由自己颁发（也可能是一些封闭机构，如政府，教育结构颁发）。
 
-#### 证书由CA颁发
+**** 证书由CA颁发
 对于CA颁发的证书，因为Android已经预存了CA的证书，所以不需要任何额外的工作。只是将url http改为https。
 
 下面这个例子是去拿wikipedia.org的首页数据，使用chrome客户端。我们可以查看到wikipedia.org的证书由GlobalSign Organization Validation CA颁发，而GlobalSign Origanization Validataion CA的证书已经由Android系统预存。
@@ -97,7 +97,7 @@ date: 2016-02-24T10:39:14+08:00
 
 验证一下，可以正确获取到数据。
 
-#### 证书由自己颁发
+**** 证书由自己颁发
 对于证书由自己颁发的服务器，我们按照普通的方式发送请求，可以看到会报一个找不到可信赖证书的异常。
 我们拿12306的网站来看，通过查看，我们可以看到12306的证书是自己颁给自己的。
 
@@ -190,7 +190,7 @@ date: 2016-02-24T10:39:14+08:00
 
 验证一下，这时候可以正确获取到数据了。
 
-## 证书的服务器端配置
+** 证书的服务器端配置
 首先明白一个问题，https配置只和web容器有关系，所以https配置和编写服务器的语言没有关系。我们接下来以apache服务器为例，因为申请CA证书比较繁琐，所以我们用自己给自己签名的证书进行测试。
 
 1. 生成密钥
@@ -220,7 +220,7 @@ sudo openssl x509 -req -days 365 -in request.csr -signkey server.key -out server
 
 好了，我们可以打开测试网址https://127.0.0.1/PhpHttpsTest/查看效果了。跟12306一样。
 
-## SSL/TLS
+** SSL/TLS
 最后我们来看一些SSL的知识。前面讲到的SSL加密过程只是一个概念，实际的加密过程比较复杂。当然不可能是用公钥来加密通信过程，这样相当耗费时间。
 
 那么SSL是怎么做到的加密传输呢，概括来说是通过SSL握手过程一个“对话秘钥”（session key），用来加密接下来的整个对话过程。
@@ -239,12 +239,12 @@ sudo openssl x509 -req -days 365 -in request.csr -signkey server.key -out server
 第五部，客户端和服务端根据约定的加密方法，使用前面三个随机数，生成“对话秘钥”，用来
 加密接下来的整个对话过程。
 
-## 一些注意点
+** 一些注意点
 1. 通常CA不直接提供它的证书，而是提供它的二级证书：<http://developer.android.com/training/articles/security-ssl.html#MissingCa>
 
 这个时候就需要服务端既提供自己的证书，也提供二级证书。因为Android只预存了根证书。
 
-## 问题
+** 问题
 1. 双向认证是什么？
 
 
