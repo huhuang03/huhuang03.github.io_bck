@@ -11,9 +11,12 @@
 #+END_COMMENT
 
 #+OPTIONS: ^:nil
-* remove folder `node_modules` in history 
+* remove some folder in all commit history (e.g: `node_modules`)
   
 #+BEGIN_SRC shell
+# rewrite branch
+# --tree-fitler This is the fitler for rewriting the tree and its content
+# --prune-empty remove empty commits
 git filter-branch --tree-filter 'rm -rf node_modules' --prune-empty HEAD
 git for-each-ref --format="%(refname)" refs/original/ | xargs -n 1 git update-ref -d
 echo node_modules/ >> .gitignore
