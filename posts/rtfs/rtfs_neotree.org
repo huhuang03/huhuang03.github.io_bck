@@ -48,5 +48,3 @@ buffer-local wherever it is set."
     (neo-global--reset-width)
     window))
 #+END_SRC
-
-duomai.com

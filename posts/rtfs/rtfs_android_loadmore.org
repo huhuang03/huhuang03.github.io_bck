@@ -1,0 +1,9 @@
+Today we analysis android recycleview pull up to load more.
+
+We analysis [[https://github.com/CymChad/BaseRecyclerViewAdapterHelper][BaseRecyclerViewAdapterHelper]] to findout how to implemnt pull up to load more.
+
+这个库是将逻辑加在了Adapter上
+
+* 上拉加载的实现原理
+就是复写了Adapter的onBindViewHolder方法，检测到loadMoreView的onBind。这个时候执行加载逻辑。
+
