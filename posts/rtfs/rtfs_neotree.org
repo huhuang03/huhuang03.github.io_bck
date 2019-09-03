@@ -48,3 +48,7 @@ buffer-local wherever it is set."
     (neo-global--reset-width)
     window))
 #+END_SRC
+*** then move the window to left and set-width
+- =selct-window=
+- =selct-window-right=
+- =winmove-left=
