@@ -1,0 +1,5 @@
+** create a template
+Use menu template - new
+
+** syntax of template file
+https://www.sweetscape.com/010editor/templates.html
