@@ -1,0 +1,18 @@
+Today we read the berkeleydb's db_dump source.
+
+* First, how did that lib parse options.
+  use the =getopt= (unistd.h) func.
+  
+* How to read the db file's db list
+  As we see, the =db_dump -l= read the dbs in the db file. How this can be done?
+
+the key method =show_subs()=.
+
+which use the private method =dbenv->prdbt=
+
+* The is_sub method
+this is_sub use the private api BTM_SUBDB.
+
+#+BEGIN_SRC 
+*yesno = btsp->bt_metaflags & BTM_SUBDB ? 1 : 0;
+#+END_SRC
