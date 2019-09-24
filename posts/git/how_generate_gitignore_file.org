@@ -1,3 +1,0 @@
-在我的电脑上，当我在安卓工程下面运行 =git init= 的时候，会自动产生安卓文件的gitignorefile。而在java工程(intellij)下面运行，不会产生 gitignore文件，这是为什么呢，今天，我们就来探讨这个问题。
-
-
